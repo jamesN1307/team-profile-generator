@@ -1,112 +1,110 @@
-const inquirer = require ('inquirer')
-const manager = require('./Develop/lib/Manager')
-const engineer = require ('./Develop/lib/Engineer')
-const intern = require ('./Develop/lib/Intern')
-const employee = require ('./Develop/lib/Employee')
-const fs = require('fs')
+const inquirer = require("inquirer");
+const Manager = require("./Develop/lib/Manager");
+const Engineer = require("./Develop/lib/Engineer");
+const Intern = require("./Develop/lib/Intern");
+const generateHtml = require("./Develop/util/generateHtml");
+const fs = require("fs");
+const teamBuilder = [];
 
-const prompt = [
+inquirer.prompt([
     {
-        type:'confirm',
-        name: 'welcome',
-        message: 'Hi there welcome to the Team Generator! Ready to start?',
+        name: "managerName",
+        type: "input",
+        message:"Please enter the manager's name"
     },
     {
-        type:'input',
-        name: 'teamName',
-        message: 'Enter your team name',
+        name: "managerId",
+        type: "input",
+        message:"Please enter the manager's id"
     },
     {
-        type:'rawlist',
-        name:'teamMoto',
-        message:"Choose a motto for your team",
-        choices: [
-            'Our best is your best.',
-            'Programing is 10% writing code, and 90% understanding why it is not working',
-            'Stop talking show me your code',
-            'Smart data structures and dumb code works a lot better than the other way around.'
-        ],
+        name: "managerEmail",
+        type: "input",
+        message:"Please enter the manager's email"
     },
     {
-        type:"confirm",
-        name: "addPeople",
-        message: "Do you want to add more people?"
-    }
-]
-
-inquirer.prompt(prompt).then((ans) => {
-    const firstContent = generateRoot(ans)
-    
+        name: "managerOffice",
+        type: "input",
+        message:"Please enter the manager's office number"
+    }   
+]).then(function(response){
+    const newManger = new Manager(response.managerName,response.managerId,response.managerEmail,response.managerOffice)
+    teamBuilder.push(newManger);
+    task();
 })
-
-const addManager = () =>{
-    return inquirer.prompt ([
-        {
-            type:'input',
-            name: 'managerName',
-            message: 'Please enter the manager name of this team',
-            validate: nameInput => {
-                if (nameInput){
-                    return true;
-                } else {
-                    console.log("Quit playing. Can I get the manager name?");
-                    return false;
-                }
-            }
-        },
-        {
-            type:'input',
-            name: 'managerId',
-            message: 'Please enter the manager ID',
-            validate: nameInput => {
-                if (isNaN(nameInput)){
-                    console.log("Wrong ID please try again")
-                    return false;
-                } else {
-                    return true
-                }
-            }
-        },
-        {
-            type:'input',
-            name: 'managerEmail',
-            message: 'Please enter the manager email',
-            validate: nameInput => {
-                if (nameInput){
-                    return true;
-                } else {
-                    console.log("Quit playing. Can I get the manager email?");
-                    return false;
-                }
-            }
-        },
-        {
-            type:'input',
-            name: 'officeNumber',
-            message: 'Please enter the manager office Number',
-            validate: nameInput => {
-                if (isNaN(nameInput)){
-                    console.log("Wrong office number please try again")
-                    return false;
-                } else {
-                    return true
-                }
-            }
-        },
-    ]) .then(ans => {
-        const newManager = new Manager (ans.managerName, ans.managerID, ans.managerEmail, ans.officeNumber)
-        manager.push(newManager);
-        console.log(newManager)
-        teamGenerator();
-    })
-}
-
-const addEngineer = () => {
+function task() {
+    console.log(teamBuilder);
     inquirer.prompt([
         {
-            type:'input',
-            name: 'engineerName',
-            messages: 'Please enter your engineer name to add on the team'
+            name: "choice",
+            type: "list",
+            message:"What would you like to do",
+            choices:["add intern", "add Engineer", "finalize"]
+        }   
+    ]).then(function(response){
+        if (response.choice === "add intern") {
+            inquirer.prompt([
+                {
+                        name: "internName",
+                        type: "input",
+                        message:"Please enter the intern's name"
+                },
+                {
+                    name: "internId",
+                    type: "input",
+                    message:"Please enter the intern's id"
+                },
+                {
+                    name: "internEmail",
+                    type: "input",
+                    message:"Please enter the intern's email"
+                },
+                {
+                    name: "internSchool",
+                    type: "input",
+                    message:"Please enter the intern's school"
+                }
+            ]).then(function(response){
+                const newIntern = new Intern (response.internName,response.internId,response.internEmail,response.internSchool);
+                teamBuilder.push(newIntern);
+                task();
+            })
         }
-    ])
+        if (response.choice === "add Engineer") {
+            inquirer.prompt([
+                {
+                        name: "engineerName",
+                        type: "input",
+                        message:"Please enter the engineer's name"
+                },
+                {
+                    name: "engineerId",
+                    type: "input",
+                    message:"Please enter the engineer's id"
+                },
+                {
+                    name: "engineerEmail",
+                    type: "input",
+                    message:"Please enter the engineer's email"
+                },
+                {
+                    name: "engineerGithub",
+                    type: "input",
+                    message:"Please enter the engineer's Github username"
+                }
+            ]).then(function(response){
+                const newEngineer = new Engineer (response.engineerName,response.engineerId,response.engineerEmail,response.engineerGithub);
+                teamBuilder.push(newEngineer);
+                task();
+            })
+        }
+        if(response.choice === "finalize"){
+            console.log("CONGRATULATION!!!YOU HAVE COMPLETED BUILDING YOUR TEAM. Please check the UTIL fold for your URTEAM file :) ");
+            fs.writeFile("./Develop/util/URteam.html", generateHtml(teamBuilder), function(error){
+                console.log(error);
+            })
+            
+        }
+
+    })
 }
