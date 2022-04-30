@@ -1,9 +1,8 @@
 # Building Team Profile Generator 
 
- [Badge for GitHub repo top language](https://img.shields.io/github/languages/top/jamesN1307/Building Team Profile Generator ?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/jamesN1307/Building Team Profile Generator ?style=flat&logo=appveyor)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
       
-Check out the badges hosted by [shields.io](https://shields.io/).
- ## Description
+## Description
     Team Profile Generator is a HTML generator which helps team managers to create a list of team members with all essential information in a timely fashion
  ## Table of Contents
     - [Installation](#installation)
@@ -15,8 +14,10 @@ Check out the badges hosted by [shields.io](https://shields.io/).
     Operation system needs to have node js and npm installed. In addtion, after git clone, enter 'npm i' on the terminal prior to the first use
  ### Live Demo 
     https://youtu.be/1rGJWRGZhVY
-    
-    ## Usage
+    <img width="1426" alt="Screen Shot 2022-04-30 at 1 23 53 PM" src="https://user-images.githubusercontent.com/97413286/166121468-0b66f101-3530-44a2-b93d-269d15afc95b.png">
+
+ 
+ ## Usage
     To initiate this app You first need to entering "node.js" and Follow the questionare 
  ## Contributing
     you may fork this application by the following steps
@@ -26,12 +27,21 @@ Check out the badges hosted by [shields.io](https://shields.io/).
      4. **Push** your work back up to your fork
  ## Credits
     Shoutout to Joe YOUNG for helping me with this project 
- ## License
     
-![License: Do What The F*ck You Want To Public License(wtfpl)](https://img.shields.io/badge/License-Do What The F*ck You Want To Public License(wtfpl)-blue.svg)
-    
- * Licensed under the Do What The F*ck You Want To Public License(wtfpl) License. Copyright © 2022
-    ---
-  ## Contacts
+## Contacts
     GitHub: [jamesN1307](https://github.com/jamesN1307/)
     Email: [tri1307@uw.edu](mailto:tri1307@uw.edu$)
+## License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+©2022 James Nguyen
+
+    ---
+
