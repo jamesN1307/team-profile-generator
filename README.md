@@ -13,10 +13,11 @@
  ## Installation
     Operation system needs to have node js and npm installed. In addtion, after git clone, enter 'npm i' on the terminal prior to the first use
  ### Live Demo 
-    <img width="1426" alt="Screen Shot 2022-04-30 at 1 23 53 PM" src="https://user-images.githubusercontent.com/97413286/166121468-0b66f101-3530-44a2-b93d-269d15afc95b.png">
+<img width="1426" alt="Screen Shot 2022-04-30 at 1 23 53 PM" src="https://user-images.githubusercontent.com/97413286/166121535-e9e260bf-4bd9-4a86-8a88-cab183bc56a9.png">
 
 
 https://user-images.githubusercontent.com/97413286/166121519-25ca96d8-6313-4708-b2da-9cd0dd63b808.mp4
+
 
 
  
